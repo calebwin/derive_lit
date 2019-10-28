@@ -1,10 +1,36 @@
 //! This is a crate for automatically generating macros that expand to literal values of your data structure. Here's an example.
 //! ```
-//! # use derive_lit::VecLit;
-//! # #[derive(VecLit)]
-//! # struct MyStruct;
-//! # impl MyStruct { fn new() -> Self {Self{}} fn push(&mut self, elem: usize) {}}
-//! let x: MyStruct = my_struct! [0, 9, 3, 4, 5];
+//! use derive_lit::VecLit;
+//!
+//! #[derive(VecLit)]
+//! struct GroceryList {
+//! 	num_items: usize,
+//! 	item_ids: Vec<usize>	
+//! }
+//!
+//! impl GroceryList {
+//! 	fn new() -> Self {
+//! 		Self {
+//! 			num_items: 0,
+//! 			item_ids: vec![]
+//! 		}
+//! 	}
+//!
+//! 	fn push(&mut self, item_id: usize) {
+//! 		self.item_ids.push(item_id);
+//! 	}
+//! }
+//!
+//! fn main() {
+//! 	let groceries = grocery_list![
+//! 		0,
+//! 		9,
+//! 		8,
+//! 		5
+//! 	];
+//!
+//! 	// do something intersting with your GroceryList...
+//! }
 //! ```
 
 extern crate proc_macro;
