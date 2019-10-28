@@ -8,7 +8,7 @@ Are you developing a data structure?
 ```rust
 struct GroceryList {
 	num_items: usize,
-	items: Vec<String>
+	item_ids: Vec<usize>
 }
 ```
 
@@ -19,12 +19,12 @@ impl GroceryList {
 	fn new() -> Self {
 		Self {
 			num_items: 0,
-			items: vec![]
+			item_ids: vec![]
 		}
 	}
 
-	fn push(&mut self, item: String) {
-		self.push(item);
+	fn push(&mut self, item_id: usize) {
+		self.item_ids.push(item_id);
 	}
 }
 ```
@@ -34,10 +34,10 @@ Wouldn't it be cool if you could do this?
 ```rust
 fn main() {
 	let groceries = grocery_list![
-		"Milk",
-		"Bread",
-		"Apples",
-		"Flour"
+		0,
+		9,
+		8,
+		4
 	];
 
 	// do something intersting with your GroceryList...
@@ -52,7 +52,7 @@ use derive_lit::VecLit;
 #[derive(VecLit)]
 struct GroceryList {
 	num_items: usize,
-	items: Vec<String>	
+	item_ids: Vec<usize>
 }
 ```
 

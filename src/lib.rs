@@ -5,7 +5,7 @@
 //! #[derive(VecLit)]
 //! struct GroceryList {
 //! 	num_items: usize,
-//! 	item_ids: Vec<usize>	
+//! 	item_ids: Vec<usize>
 //! }
 //!
 //! impl GroceryList {
